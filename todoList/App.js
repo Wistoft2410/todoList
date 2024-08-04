@@ -8,8 +8,7 @@ export default function App() {
 
       {/* Today's Tasks */}
       <View style={styles.taskWrapper}>
-        <Text style={styles.sectionTitle}>Today's Tasks</Text>
-        
+        <Text style={styles.header}>Today's Tasks</Text>
         <View styles={styles.items}>
         {/* This is where the tasks will go! */}
           <Task text={'Task 1'}/>
@@ -32,8 +31,11 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     paddingHorizontal: 20, 
   }, 
-  sectionTitle: {
-    fontSize: 24, 
+  header: {
+    fontSize: 24,
     fontWeight: 'bold',
-  },
+    marginTop: 20,
+    marginBottom: 20, // Add some bottom margin to space out from the tasks
+    paddingHorizontal: 20,
+},
 });
