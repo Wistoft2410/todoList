@@ -9,7 +9,6 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]); /* Creating a new useState that has datatype array */ 
 
 const handleAddTask = () => {
-  Keyboard.dismiss();
   console.log('Task added:', task);  // Debug log
   setTaskItems([...taskItems, task])
   setTask(null);
