@@ -10,9 +10,17 @@ export default function App() {
 
 const handleAddTask = () => {
   Keyboard.dismiss();
+  console.log('Task added:', task);  // Debug log
   setTaskItems([...taskItems, task])
   setTask(null);
 }
+
+const completeTask = (index) => {
+  let itemsCopy = [...taskItems];
+  itemsCopy.splice(index, 1);
+  setTaskItems(itemsCopy);
+}
+
   return (
     <View style={styles.container}>
 
@@ -23,7 +31,11 @@ const handleAddTask = () => {
         {/* This is where the tasks will go! */}
         {
           taskItems.map((item, index) => {
-            return <Task key={index} text={item}/>
+            return (
+              <TouchableOpacity onPress={() => completeTask(index)}>
+                <Task key={index} text={item}/>
+              </TouchableOpacity>
+            )
           })
         }
           <Task text={'Task 1'}/>
