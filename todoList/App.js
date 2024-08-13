@@ -37,8 +37,6 @@ const completeTask = (index) => {
             )
           })
         }
-          <Task text={'Task 1'}/>
-          <Task text={'Task 2'}/>
 
         </View> 
 
