@@ -9,7 +9,8 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]); /* Creating a new useState that has datatype array */ 
 
 const handleAddTask = () => {
-  console.log(task); 
+  setTaskItems([...taskItems, task])
+  setTask(null);
 }
   return (
     <View style={styles.container}>
@@ -19,6 +20,11 @@ const handleAddTask = () => {
         <Text style={styles.header}>Today's Tasks</Text>
         <View styles={styles.items}>
         {/* This is where the tasks will go! */}
+        {
+          taskItems.map((item, index) => {
+            return <Task text={item}/>
+          })
+        }
           <Task text={'Task 1'}/>
           <Task text={'Task 2'}/>
 
@@ -31,7 +37,12 @@ const handleAddTask = () => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)}/>
+        <TextInput 
+          style={styles.input} 
+          placeholder={'Write a task'} 
+          value={task} 
+          onChangeText={text => setTask(text)}
+          />
         
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
