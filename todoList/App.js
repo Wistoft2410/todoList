@@ -9,6 +9,7 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]); /* Creating a new useState that has datatype array */ 
 
 const handleAddTask = () => {
+  Keyboard.dismiss();
   setTaskItems([...taskItems, task])
   setTask(null);
 }
@@ -22,7 +23,7 @@ const handleAddTask = () => {
         {/* This is where the tasks will go! */}
         {
           taskItems.map((item, index) => {
-            return <Task text={item}/>
+            return <Task key={index} text={item}/>
           })
         }
           <Task text={'Task 1'}/>
